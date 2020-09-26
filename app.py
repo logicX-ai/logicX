@@ -109,6 +109,6 @@ def delete():
         return f"An Error Occured: {e}"
 
 
-port = int(os.environ.get('PORT', 5000))
+port = int(os.environ.get('PORT', 8000))
 if __name__ == '__main__':
-    app.run(threaded=True, host='127.0.0.1', port=port)
+    app.run(threaded=True, host='0.0.0.0', port=port)
