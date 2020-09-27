@@ -1,7 +1,0 @@
-{
-    "python.pythonPath": "c:\\Users\\randy\\Desktop\\logicX\\env\\Scripts\\python.exe",
-    "git.ignoreLimitWarning": true,
-    "python.linting.pylintEnabled": false,
-    "python.linting.pydocstyleEnabled": true,
-    "python.linting.enabled": true
-}

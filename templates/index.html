@@ -1,14 +1,18 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>LogicX</title>
-  </head>
-  <body>
-    <h1>File Upload</h1>
-    <form method="POST" action="" enctype="multipart/form-data">
-      <p><input type="file" name="file"></p>
-      <p><input type="submit" value="Submit"></p>
-    </form>
-  </body>
+<!doctype html>
+<html>
+<head>
+  <title>Datastore and Firebase Auth Example</title>
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+  <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+  <h1>Datastore and Firebase Auth Example</h1>
+
+  <h2>Last 10 visits</h2>
+  {% for time in times %}
+    <p>{{ time }}</p>
+  {% endfor %}
+
+</body>
 </html>
