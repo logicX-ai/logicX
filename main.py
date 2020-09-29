@@ -32,13 +32,12 @@ def root():
     listie = []
     start = time.time()
 
-    la = []
     for i in range(1000):
-        la.append(i+5*100/5*100**2)
+        print('hi')
     end = time.time()
-    total = (end - start) ** 10000
+    total = (end - start) 
     print(total)
-    listie.append(['result', total])
+    listie.append(['result', total * 10])
     print(listie)
 
 
