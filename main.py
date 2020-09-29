@@ -1,111 +1,56 @@
-# Required Imports
-import os
-from flask import Flask, request, jsonify, render_template
-from firebase_admin import credentials, firestore, initialize_app
+# Copyright 2018 Google LLC
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
 
-# Initialize Flask App
-app = Flask(__name__, template_folder="templates")
+# [START gae_python38_render_template]
+import datetime
 
-# Initialize Firestore DB
-cred = credentials.Certificate('key.json')
-default_app = initialize_app(cred)
-db = firestore.client()
-todo_ref = db.collection('todos')
+from flask import Flask, render_template
 
-def allowed_file(filename):
-    return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+app = Flask(__name__)
 
-@app.route('/', methods=['GET', 'POST'])
-def upload_file():
-    if request.method == 'POST':
-        # check if the post request has the file part
-        if 'file' not in request.files:
-            flash('No file part')
-            return redirect(request.url)
-        file = request.files['file']
-        # if user does not select file, browser also
-        # submit an empty part without filename
-        if file.filename == '':
-            flash('No selected file')
-            return redirect(request.url)
-        if file and allowed_file(file.filename):
-            filename = secure_filename(file.filename)
-            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            return redirect(url_for('uploaded_file',
-                                    filename=filename))
-    return '''
-    <!doctype html>
-    <title>Upload new File</title>
-    <h1>Upload new File</h1>
-    <form method=post enctype=multipart/form-data>
-      <input type=file name=file>
-      <input type=submit value=Upload>
-    </form>
-    '''
+@app.route('/')
+def root():
+    # For the sake of example, use static information to inflate the template.
+    # This will be replaced with real information in later steps.
+    dummy_times = [datetime.datetime(2018, 1, 1, 10, 0, 0),
+                   datetime.datetime(2018, 1, 2, 10, 30, 0),
+                   datetime.datetime(2018, 1, 3, 11, 0, 0),
+                   ]
 
-@app.route('/add', methods=['GET'])
-def create():
-    """
-        create() : Add document to Firestore collection with request body
-        Ensure you pass a custom ID as part of json body in post request
-        e.g. json={'id': '1', 'title': 'Write a blog post'}
-    """
-    try:
-        id = request.json['id']
-        todo_ref.document(id).set(request.json)
-        return jsonify({"success": True}), 200
-    except Exception as e:
-        return f"An Error Occured: {e}"
+    import time
+    listie = []
+    start = time.time()
+
+    la = []
+    for i in range(1000):
+        la.append(i+5*100/5*100**2)
+    end = time.time()
+    total = (end - start) ** 10000
+    print(total)
+    listie.append(['result', total])
+    print(listie)
 
 
-@app.route('/list', methods=['GET'])
-def read():
-    """
-        read() : Fetches documents from Firestore collection as JSON
-        todo : Return document that matches query ID
-        all_todos : Return all documents
-    """
-    try:
-        # Check if ID was passed to URL query
-        todo_id = request.args.get('id')    
-        if todo_id:
-            todo = todo_ref.document(todo_id).get()
-            return jsonify(todo.to_dict()), 200
-        else:
-            all_todos = [doc.to_dict() for doc in todo_ref.stream()]
-            return jsonify(all_todos), 200
-    except Exception as e:
-        return f"An Error Occured: {e}"
+    return render_template('index.html', times=listie)
 
 
-@app.route('/update', methods=['POST', 'PUT'])
-def update():
-    """
-        update() : Update document in Firestore collection with request body
-        Ensure you pass a custom ID as part of json body in post request
-        e.g. json={'id': '1', 'title': 'Write a blog post today'}
-    """
-    try:
-        id = request.json['id']
-        todo_ref.document(id).update(request.json)
-        return jsonify({"success": True}), 200
-    except Exception as e:
-        return f"An Error Occured: {e}"
 
+@app.route('/<userID>')
+def gresa(userID):
 
-@app.route('/delete', methods=['GET', 'DELETE'])
-def delete():
-    """
-        delete() : Delete a document from Firestore collection
-    """
-    try:
-        # Check for ID in URL query
-        todo_id = request.args.get('id')
-        todo_ref.document(todo_id).delete()
-        return jsonify({"success": True}), 200
-    except Exception as e:
-        return f"An Error Occured: {e}"
+    return {'hi': userID}
 
 if __name__ == '__main__':
-
     app.run(host='127.0.0.1', port=8080, debug=True)
+# [END gae_python38_render_template]
