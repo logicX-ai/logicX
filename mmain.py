@@ -3,7 +3,14 @@ from flask import Flask, render_template
 import datetime
 import time
 from flask import abort, jsonify
-
+# app.py
+import datetime
+# Required imports
+import time
+import os
+from flask import Flask, request, jsonify, abort, jsonify
+from firebase_admin import render_template, credentials, firestore, initialize_app
+import pyrebase
 
 app = Flask(__name__)
 

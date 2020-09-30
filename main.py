@@ -1,15 +1,7 @@
-# app.py
-import datetime
-# Required imports
-import time
-import os
-from flask import Flask, request, jsonify
-from firebase_admin import credentials, firestore, initialize_app
 
-from flask import Flask, render_template
-import datetime
-import time
-from flask import abort, jsonify
+
+from flask import Flask, render_template, jsonify, abort, jsonify, request
+from firebase_admin import credentials, firestore, initialize_app
 import pyrebase
 # Initialize Flask app
 app = Flask(__name__)
@@ -27,7 +19,7 @@ config = {
 firebase = pyrebase.initialize_app(config)
 auth = firebase.auth()
 db = firebase.database()
-storage = firebase.storage()
+#torage = firebase.storage()
 
 @app.route('/')
 @app.route('/index', methods=['GET', 'POST'])
