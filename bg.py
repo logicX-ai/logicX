@@ -1,22 +1,22 @@
-from flask import Flask, render_template, jsonify, abort, jsonify, request
-from firebase_admin import credentials, firestore, initialize_app
-import firebase_admin
-from firebase_admin import auth
-from firebase_admin import credentials
-import pyrebase
-# Initialize Flask app
 
-app = Flask(__name__)
+config = {
+    "apiKey": "AIzaSyDO5rrA636O1570joRDfWTlgT8tqSx6hw",
+    "authDomain": "",
+    "databaseURL": "",
+    "projectId": "logicx",
+    "storageBucket": "",
+    "messagingSenderId": "",
+    "appId": "logicx"
+}
 
-cred = credentials.Certificate("key.json")
-server_app = firebase_admin.initialize_app(cred)
+firebase = pyrebase.initialize_app(config)
+auth = firebase.auth()
+db = firebase.database()
 
 
 @app.route('/')
 @app.route('/index', methods=['GET', 'POST'])
 def index():
-
-
     if (request.method == 'POST'):
             email = request.form['name']
             password = request.form['password']
@@ -35,7 +35,7 @@ def create_account():
     if (request.method == 'POST'):
             email = request.form['name']
             password = request.form['password']
-            auth.create_user(email=email, password=password)
+            auth.create_user_with_email_and_password(email, password)
             return render_template('index.html')
     return render_template('create_account.html')
 
