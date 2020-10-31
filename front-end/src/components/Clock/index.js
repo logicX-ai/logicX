@@ -5,7 +5,7 @@ function Clock() {
   var componentConfig = {
     iconFiletypes: ['.jpg', '.png', '.gif'],
     showFiletypeIcon: true,
-    postUrl: '/uploadHandler'
+    postUrl: 'google.com'
 };
 
 const djsConfig = {
