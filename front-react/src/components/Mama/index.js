@@ -21,7 +21,6 @@ class Mama extends React.Component {
     data.append('file', this.uploadInput.files[0]);
     data.append('filename', this.fileName.value);
     console.log('what')
-    console.log(Firebase.db)
     fetch('http://localhost:5000/upload', {
       method: 'POST',
       body: data,

@@ -5,7 +5,6 @@ import Messages from '../Messages';
 import Clock from '../Clock'
 import Mama from '../Mama'
 
-
 const DashboardPage = () => (
 
 
@@ -20,8 +19,7 @@ const DashboardPage = () => (
     <Clock />
     <Mama />
 
-
-
+   
     <Messages />
     
     
