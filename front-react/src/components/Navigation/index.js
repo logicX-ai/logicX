@@ -1,10 +1,12 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+
 import { AuthUserContext } from '../Session';
 import SignOutButton from '../SignOut';
+import { Link } from 'react-router-dom';
 import * as ROUTES from '../../constants/routes';
 import * as ROLES from '../../constants/roles';
-import Clock from '../Clock'
+
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Navigation = () => (
 
@@ -18,6 +20,9 @@ const Navigation = () => (
       )
     }
   </AuthUserContext.Consumer>
+
+
+
 );
 
 const NavigationAuth = ({ authUser }) => (
@@ -28,7 +33,6 @@ const NavigationAuth = ({ authUser }) => (
     </li>
     <li>
       <Link to={ROUTES.DASHBOARD}>Dashboard</Link>
-      <div> <Clock /></div>
     </li>
     <li>
       <Link to={ROUTES.ACCOUNT}>Account</Link>

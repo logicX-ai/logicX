@@ -1,53 +1,116 @@
-import React from 'react';
-import Firebase from 'firebase'
+import React, { Component } from 'react';
+import {
+    Collapse,
+    Navbar,
+    NavbarToggler,
+    NavbarBrand,
+    Nav,
+    NavItem,
+    NavLink,
+    Container,
+    Row,
+    Col,
+    Jumbotron,
+    Button
+} from 'reactstrap';
+import Clock from '../Clock'
+class Mama extends Component {
+    constructor(props) {
+        super(props);
+
+        this.toggle = this.toggle.bind(this);
+        this.state = {
+            isOpen: false
+        };
+    }
+    toggle() {
+        this.setState({
+            isOpen: !this.state.isOpen
+        });
+    }
+    render() {
+        return (
+            <div>
+              
+                <Navbar color="inverse" light expand="md">
+                    <NavbarBrand href="/">LogicX.ai</NavbarBrand>
+                    <NavbarToggler onClick={this.toggle} />
+                    <Collapse isOpen={this.state.isOpen} navbar>
+                        <Nav className="ml-auto" navbar>
+                            <NavItem>
+                            <Button
+                                        tag="a"
+                                        color="dark"
+                                        size="large"
+                                        href="http://localhost:3000/"
+                                        target="_blank"
+                                    >
+                                        HOME
+                                    </Button>
+                            </NavItem>
+
+                            <NavItem>  <span>&nbsp;&nbsp;</span>
+                            <Button
+                                        tag="a"
+                                        color="dark"
+                                        size="large"
+                                        href="http://reactstrap.github.io"
+                                        target="_self"
+                                    >
+                                        DATA
+                                    </Button>
+                            </NavItem>
+                            <NavItem> <span>&nbsp;&nbsp;</span>
+                              <Button
+                                        tag="a"
+                                        color="dark"
+                                        size="large"
+                                        href="http://localhost:3000/dashboard"
+                                        target="_self"
+                                    >
+                                        LAB
+                                    </Button>
+                            </NavItem>
+          
+                            <NavItem> <span>&nbsp;&nbsp;</span>
+                            <Button
+                                        tag="a"
+                                        color="dark"
+                                        size="large"
+                                        href="http://localhost:3000/account"
+                                        target="_self"
+                                    >
+                                        ACCOUNT
+                                    </Button>
+                                   </NavItem>
+                        </Nav>
+                    </Collapse>
+                </Navbar>
+                <Jumbotron>
+                    <Container>
+                        <Row>
+                            <Col>
 
 
-class Mama extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      imageURL: '',
-    };
-
-    this.handleUploadImage = this.handleUploadImage.bind(this);
-  }
-
-  handleUploadImage(ev) {
-    ev.preventDefault();
-    const adaRef = 'hi'
-    console.log(adaRef)
-    const data = new FormData();
-    data.append('file', this.uploadInput.files[0]);
-    data.append('filename', this.fileName.value);
-    console.log('what')
-    fetch('http://localhost:5000/upload', {
-      method: 'POST',
-      body: data,
-    }).then((response) => {
-      response.json().then((body) => {
-        this.setState({ imageURL: `http://localhost:5000/${body.file}` });
-      });
-    });
-  }
-
-  render() {
-    return (
-      <form onSubmit={this.handleUploadImage}>
-        <div>
-          <input ref={(ref) => { this.uploadInput = ref; }} type="file" />
-        </div>
-        <div>
-          <input ref={(ref) => { this.fileName = ref; }} type="text" placeholder="Enter the desired name of file" />
-        </div>
-        <br />
-        <div>
-          <button>Upload</button>
-        </div>
-        <img src={this.state.imageURL} alt="img" />
-      </form>
-    );
-  }
+                           
+                                <h1>Time-Series Deep Learning</h1>
+                                <p>
+                                    <Button
+                                        color="dark"
+                                        size="large"
+                                        target="_blank"
+                                    >
+                                         <Clock />
+                            
+                                    </Button>
+                                </p>
+                            </Col>
+                        </Row>
+                    </Container>
+                </Jumbotron>
+            </div>
+        );
+    }
 }
 
 export default Mama;
