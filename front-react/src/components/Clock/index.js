@@ -1,22 +1,20 @@
 import React from 'react';
 import DropzoneComponent from 'react-dropzone-component';
-import "bootstrap/dist/css/bootstrap.min.css";
+import { Navbar } from 'rsuite';
 
+function Clock() {
 
-class Clock extends React.Component {
-
-  render() {
+   {
 
   var componentConfig = {
-    iconFiletypes: ['.jpg', '.png', '.gif'],
+    iconFiletypes: ['.csv', '.png', '.gif'],
     showFiletypeIcon: true,
-    postUrl: 'google.com'
+    postUrl: 'http://127.0.0.1:5000/'
 };
 
  const djsConfig = {
-  addRemoveLinks: false,
-  acceptedFiles: "csv",
-  autoProcessQueue: true
+  addRemoveLinks: true,
+  acceptedFiles: ".csv",
 };
 var eventHandlers = { addedfile: (file) => console.log(file, file.name) }
   return (
@@ -25,8 +23,8 @@ var eventHandlers = { addedfile: (file) => console.log(file, file.name) }
     djsConfig={djsConfig}
     eventHandlers={eventHandlers} />
   );
-}
-}
+}}
+
 export default Clock;
 
 

@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import * as ROUTES from '../../constants/routes';
 import * as ROLES from '../../constants/roles';
 
-import 'bootstrap/dist/css/bootstrap.min.css';
+import 'semantic-ui-css/semantic.min.css'
 
 const Navigation = () => (
 
@@ -27,40 +27,33 @@ const Navigation = () => (
 
 const NavigationAuth = ({ authUser }) => (
   <div>
-  <ul>
-    <li>
+  
       <Link to={ROUTES.HOME}>HOME</Link>
-    </li>
-    <li>
+
       <Link to={ROUTES.DASHBOARD}>Dashboard</Link>
-    </li>
-    <li>
+  
       <Link to={ROUTES.ACCOUNT}>Account</Link>
-    </li>
+  
     {!!authUser.roles[ROLES.ADMIN] && (
-      <li>
+   
         <Link to={ROUTES.ADMIN}>Admin</Link>
-      </li>
+    
     )}
-    <li>
+  
       <SignOutButton />
-    </li>
-  </ul>
+ 
+ 
 
 </div>
 );
 
 const NavigationNonAuth = () => (
   
-  <div> <ul>
-    <li>
+  <div> 
       <Link to={ROUTES.HOME}>HOME</Link>
-    </li>
-    <li>
+   
       <Link to={ROUTES.SIGN_IN}>Sign In</Link>
-    </li>
-  </ul>
-
+ 
 </div>
 
   

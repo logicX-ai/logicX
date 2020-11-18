@@ -1,5 +1,6 @@
 import React from 'react';
 
+import 'semantic-ui-css/semantic.min.css'
 import MessageItem from './MessageItem';
 
 const MessageList = ({
