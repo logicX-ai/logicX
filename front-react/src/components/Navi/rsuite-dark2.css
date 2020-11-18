@@ -25,7 +25,8 @@ template {
 
 div.hoj {
   display: flex;
-  flex-grow: 1
+  flex-grow: 1;
+  height: fit-content;
   
 }
 a {
