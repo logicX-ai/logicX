@@ -5,8 +5,8 @@ import "./logicx.css"
 
 export default class Makepost extends Component {
   handleOnDrop = (data) => {
-    console.log(data);
-    axios.post('http://127.0.0.1:5000/', {
+
+    axios.post('http://127.0.0.1:5000/',{
       data
     })
     .then(function (response) {

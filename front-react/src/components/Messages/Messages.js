@@ -30,7 +30,7 @@ class Messages extends Component {
       .limitToLast(this.state.limit)
       .on('value', snapshot => {
         const messageObject = snapshot.val();
-
+      
         if (messageObject) {
           const messageList = Object.keys(messageObject).map(key => ({
             ...messageObject[key],
@@ -40,7 +40,7 @@ class Messages extends Component {
           this.setState({
             messages: messageList,
             loading: false,
-          });
+          },console.log('hi'));
         } else {
           this.setState({ messages: null, loading: false });
         }

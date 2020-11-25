@@ -1,7 +1,7 @@
-from app import app
+from logicx import logicx
 from flask_cors import CORS,cross_origin
 
-CORS(app)
+CORS(logicx)
 
 if __name__=="__main__":
-    app.run(host='127.0.0.1' , port=5000,debug = True)    
+    logicx.run(host='127.0.0.1' , port=5000,debug = True)    

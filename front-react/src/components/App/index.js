@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import Navigation from '../Navigation';
+
 import HomePage from '../Home';
 import SignUpPage from '../SignUp'; 
 import SignInPage from '../SignIn';
@@ -11,13 +11,10 @@ import AdminPage from '../Admin';
 import * as ROUTES from '../../constants/routes';
 import { withAuthentication } from '../Session';
 import "./logicx.css"
-import Messages from '../Messages';
-import Mama from '../Mama';
 import Apipull from '../Apipull'
 import Navi from '../Navi'
-import Makepost from '../Makepost'
 
-{/* START app */}
+
 const App = () => (
 <Router>
 
@@ -29,8 +26,7 @@ const App = () => (
 <div class='flexbox'>
   <div class="flexboxnav"> 
   <Navi/>
-  <Mama/>
-  
+
   </div>  
 
     <div class="mid-box"> 
@@ -39,7 +35,7 @@ const App = () => (
      
         {/* Right Mid column */}                
         <div class="right-body-panel"> 
-        <Makepost/>
+        
         <Route exact path={ROUTES.HOME} component={HomePage} />
         <Route path={ROUTES.DASHBOARD} component={DashboardPage} />
 

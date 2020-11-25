@@ -18,7 +18,7 @@ function Apipull() {{
   };
    return (
      <div>
-    <div style={{ display: 'flex', display: '-webkit-box',maxHeight: '50%',flexshrink: 2}}> 
+    <div style={{ display: 'flex', maxHeight: '50%',flexshrink: 2}}> 
     <Sidenav defaultOpenKeys={['3', '4']}>
       <Sidenav.Header>
         <div style={headerStyles}></div>

@@ -2,13 +2,8 @@ import React from 'react';
 import { compose } from 'recompose';
 import { withAuthorization} from '../Session';
 import Messages from '../Messages';
-import Mama from '../Mama'
-import Clock from '../Clock'
-import Apipull from '../Apipull'
 import "./logicx.css"
-import { FcAddDatabase } from "react-icons/fc"; 
-
-
+import Makepost from '../Makepost'
 
 const DashboardPage = () => (
 
@@ -18,7 +13,7 @@ const DashboardPage = () => (
 
 
 
-    <div class="box">
+  <div class="box">
 
       
 <div class="alta">
@@ -29,6 +24,7 @@ const DashboardPage = () => (
 </div>
 
 <div class="alta"></div>
+<Makepost/>
 
 <div class="alta"><ul>
   <li>Preprocess and clean the data.</li>

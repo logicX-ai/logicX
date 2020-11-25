@@ -28,7 +28,8 @@
     "recompose": "^0.30.0",
     "rsuite": "^4.8.4",
     "semantic-ui-css": "^2.4.1",
-    "semantic-ui-react": "^2.0.1"
+    "semantic-ui-react": "^2.0.1",
+    "serve": "^11.3.2"
   },
   "scripts": {
     "start": "react-scripts start",

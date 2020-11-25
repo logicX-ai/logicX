@@ -2,16 +2,22 @@ import app from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/database';
 
-const config = {
-  apiKey: "AIzaSyBWT7SE8UqumBeDznct3vSV7EnY_t3WToA",
-  authDomain: "logicx-1a606.firebaseapp.com",
-  databaseURL: "https://logicx-1a606.firebaseio.com",
-  projectId: "logiyax-1a606",
-  storageBucket: "logicx-1a606.appspot.com",
-  messagingSenderId: "263223420882",
-  appId: "1:263223420882:web:37d0f6f59138eb19b90a0b",
-  measurementId: "G-QBT3M44CHT"
+const config =  {
+  apiKey: "AIzaSyCYygfIQsiF7jKTDTRZLu8EUL0WvTNMJbg",
+  authDomain: "logic-af841.firebaseapp.com",
+  databaseURL: "https://logic-af841.firebaseio.com",
+  projectId: "logic-af841",
+  storageBucket: "logic-af841.appspot.com",
+  messagingSenderId: "945457650098",
+  appId: "1:945457650098:web:baefeb5ea8d55798236cab",
+  measurementId: "G-6WY3MG2PGG"
 };
+
+
+
+
+
+
 class Firebase {
   constructor() {
     app.initializeApp(config);

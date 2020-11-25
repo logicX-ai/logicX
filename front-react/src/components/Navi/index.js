@@ -1,5 +1,4 @@
 import React from 'react';
-import DropzoneComponent from 'react-dropzone-component';
 import "./rsuite-dark2.css"
 import Navigation from '../Navigation';
 import { Dropdown, Icon, Nav, Navbar } from 'rsuite'
@@ -13,7 +12,7 @@ function Navi() {
     <Navbar>
   
     <Navbar.Body>   <Navbar.Header>
-      <a href="#" className="navbar-brand logo">LogicX</a>
+      <a href="www.logicx.ai/" className="navbar-brand logo">LogicX</a>
     </Navbar.Header>
       <Nav>
         <Nav.Item icon={<Icon icon="home" />} >Home</Nav.Item>
