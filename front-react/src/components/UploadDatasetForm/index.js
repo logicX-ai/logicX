@@ -3,12 +3,11 @@ import { CSVReader } from 'react-papaparse';
 import axios from 'axios';
 import "./logicx.css"
 
-export default class Makepost extends Component {
+export default class UploadDatasetForm extends Component {
   handleOnDrop = (data) => {
-
-    axios.post('http://127.0.0.1:5000/',{
-      data
-    })
+    axios.post('http://127.0.0.1:5000/',[{
+      data}, {'Dataset_Name' : 'raymi'}]
+    )
     .then(function (response) {
       console.log(response);
     })

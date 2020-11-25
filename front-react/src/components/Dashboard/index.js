@@ -3,11 +3,9 @@ import { compose } from 'recompose';
 import { withAuthorization} from '../Session';
 import Messages from '../Messages';
 import "./logicx.css"
-import Makepost from '../Makepost'
+import UploadDatasetForm from '../UploadDatasetForm'
 
 const DashboardPage = () => (
-
-
 
 
 
@@ -18,13 +16,15 @@ const DashboardPage = () => (
       
 <div class="alta">
 
+<UploadDatasetForm/>
 
 
+</div>
+
+<div class="alta">
 <Messages/>
 </div>
 
-<div class="alta"></div>
-<Makepost/>
 
 <div class="alta"><ul>
   <li>Preprocess and clean the data.</li>
