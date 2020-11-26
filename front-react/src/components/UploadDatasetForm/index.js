@@ -4,9 +4,18 @@ import axios from 'axios';
 import "./logicx.css"
 
 export default class UploadDatasetForm extends Component {
+
+
+
+
+
+
   handleOnDrop = (data) => {
+    
+
+  console.log(data.keys())
     axios.post('http://127.0.0.1:5000/',[{
-      data}, {'Dataset_Name' : 'raymi'}]
+      data}, {'Dataset_Name' : 'dafq'}]
     )
     .then(function (response) {
       console.log(response);
@@ -27,13 +36,15 @@ export default class UploadDatasetForm extends Component {
   render() {
     return (
       <>
-        <h5>Upload Dataset</h5>
+  
         <CSVReader
           onDrop={this.handleOnDrop}
           onError={this.handleOnError}
           addRemoveButton
           onRemoveFile={this.handleOnRemoveFile}>
-          <span>Drop CSV file here</span>
+          <span>Upload CSV </span>
+    
+
         </CSVReader>
       </>
     );

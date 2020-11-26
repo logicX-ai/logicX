@@ -113,6 +113,10 @@ function
   message = uid => this.db.ref(`messages/${uid}`);
 
   messages = () => this.db.ref('messages');
+
+  waa = () => this.db.ref('user_content/raymi');
+
+ 
 }
 
 export default Firebase;

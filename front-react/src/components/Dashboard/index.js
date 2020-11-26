@@ -13,13 +13,6 @@ const DashboardPage = () => (
 
   <div class="box">
 
-      
-<div class="alta">
-
-<UploadDatasetForm/>
-
-
-</div>
 
 <div class="alta">
 <Messages/>
@@ -32,9 +25,6 @@ const DashboardPage = () => (
   <li>Select an appropriate model family.</li>
   <li>Optimize model hyperparameters.</li>
   <li>Postprocess machine learning models.</li>
-
-
-  
   <li>Critically analyze the results obtained.</li></ul></div>
 
 
