@@ -4,11 +4,11 @@ import { withAuthorization} from '../Session';
 import Messages from '../Messages';
 import "./logicx.css"
 import UploadDatasetForm from '../UploadDatasetForm'
+import Newproblem from '../Newproblem'
+
+
 
 const DashboardPage = () => (
-
-
-
 
 
   <div class="box">
@@ -19,13 +19,7 @@ const DashboardPage = () => (
 </div>
 
 
-<div class="alta"><ul>
-  <li>Preprocess and clean the data.</li>
-  <li>Select and construct appropriate features.</li>
-  <li>Select an appropriate model family.</li>
-  <li>Optimize model hyperparameters.</li>
-  <li>Postprocess machine learning models.</li>
-  <li>Critically analyze the results obtained.</li></ul></div>
+<div class="alta"><Newproblem/></div>
 
 
 </div> 

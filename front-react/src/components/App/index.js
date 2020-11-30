@@ -28,7 +28,7 @@ const App = () => (
   <Navi/>
 
   </div>  
-
+ 
     <div class="mid-box"> 
     
         <div class="left-body-panel"> <Apipull/></div>  
