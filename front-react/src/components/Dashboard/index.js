@@ -5,7 +5,7 @@ import Messages from '../Messages';
 import "./logicx.css"
 import UploadDatasetForm from '../UploadDatasetForm'
 import Newproblem from '../Newproblem'
-
+import DataTable from '../DataTable'
 
 
 const DashboardPage = () => (

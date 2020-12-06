@@ -1,0 +1,39 @@
+
+
+
+
+
+
+
+
+
+
+
+def function extractdata():
+    connect.salesforce()
+    dataset = pull_data.()
+
+    return dataset
+
+
+def function transform_data(dataset):
+    data_from.remove_na()
+    data_from['column'].rename
+
+
+    data_from.set_index('date')
+
+    connect to bigquerry.()
+
+    bigquerry.send(data_from)
+
+    bigquerry.close()
+
+    return 'job done'
+
+def function load_data(dataset):
+    connect.bigquerry()
+    bigquerry.send('folder').child('secondfolder)
+    bigquerry.close()
+
+    return JOB DONE 

@@ -3,7 +3,6 @@
   "version": "0.2.0",
   "private": true,
   "dependencies": {
-    "@material-ui/core": "^4.11.0",
     "@material-ui/icons": "^4.9.1",
     "axios": "^0.21.0",
     "bootstrap": "^4.5.3",
@@ -23,7 +22,7 @@
     "react-papaparse": "^3.11.0",
     "react-pro-sidebar": "^0.4.4",
     "react-router-dom": "^4.3.1",
-    "react-scripts": "2.1.1",
+    "react-scripts": "^4.0.1",
     "reactstrap": "^8.7.0",
     "recompose": "^0.30.0",
     "rsuite": "^4.8.4",

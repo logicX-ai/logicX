@@ -11,8 +11,8 @@ import AdminPage from '../Admin';
 import * as ROUTES from '../../constants/routes';
 import { withAuthentication } from '../Session';
 import "./logicx.css"
-import Apipull from '../Apipull'
-import Navi from '../Navi'
+import LeftNav from '../LeftNav'
+import TopNav from '../TopNav'
 
 
 const App = () => (
@@ -25,13 +25,13 @@ const App = () => (
 {/* Master FlexBox Starts*/}
 <div class='flexbox'>
   <div class="flexboxnav"> 
-  <Navi/>
+  <TopNav/>
 
   </div>  
  
     <div class="mid-box"> 
     
-        <div class="left-body-panel"> <Apipull/></div>  
+        <div class="left-body-panel"> <LeftNav/></div>  
      
         {/* Right Mid column */}                
         <div class="right-body-panel"> 

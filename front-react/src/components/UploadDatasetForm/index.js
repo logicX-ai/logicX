@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { CSVReader } from 'react-papaparse';
 import axios from 'axios';
 import "./logicx.css"
+import { withFirebase } from '../Firebase';
+
 
 export default class UploadDatasetForm extends Component {
 
@@ -14,6 +16,8 @@ export default class UploadDatasetForm extends Component {
     
 
   console.log(data.keys())
+
+  
     axios.post('http://127.0.0.1:5000/',[{
       data}, {'Dataset_Name' : 'dafq'}]
     )

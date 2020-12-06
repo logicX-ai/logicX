@@ -1,13 +1,27 @@
 import React, { useState } from 'react';
 import 'rsuite/lib/styles/index.less';
-import { Dropdown, Icon, Nav, Sidenav } from 'rsuite'
 import "./rsuite-dark.css"
-import UploadDatasetForm from '../UploadDatasetForm'
+import Firebase, { withFirebase, FirebaseContext } from '../Firebase';
+
 
 
 function Newproblem() {{
     const [count, setCount] = useState(0);
- 
+    const firebase = React.useContext(FirebaseContext)
+    console.log(firebase.db.ref("newdatasets").child("dafq"))
+
+    var ref = firebase.db.ref("newdatasets");
+ref.orderByKey().on("child_added", function(snapshot) {
+  console.log(snapshot.val());
+});
+
+
+
+
+
+
+
+
     const panelStyles = {
        padding: '15px 20px',
        color: '#aaa'
@@ -19,8 +33,16 @@ function Newproblem() {{
        background: '#c7d6df',
        color: ' #fff'
      };
+
+     
       return (
-        <div>
+        <div> {firebase.key}
+
+
+
+
+
+
        <div style={{ display: 'flex', maxHeight: '50%',flexshrink: 2}}> 
        <div className="Newproblem">
       <h1>Hello CodeSandbox</h1>
@@ -30,13 +52,9 @@ function Newproblem() {{
       <button onClick={() => setCount(count + 1)}>Increment</button>
     </div>
      </div>
-    </div>
-      );
+    </div>);
    
    }}
 
-export default Newproblem;
-
-
-
+export default withFirebase(Newproblem);
 
