@@ -5,7 +5,7 @@ export default function DataTable() {
 
     return (
       <div>
-       hi
+   
       </div>
     )
   }

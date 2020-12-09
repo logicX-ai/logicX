@@ -3,6 +3,10 @@
 
 
 
+    const ref = firebase.db.ref("newdatasets");
+ref.orderByKey().on("child_added", function(snapshot) {
+  console.log(snapshot.val()['-MN3_Q8JI7ZSb6BVYdt8']);
+
 
 
 

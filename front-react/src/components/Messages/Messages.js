@@ -40,7 +40,7 @@ class Messages extends Component {
           this.setState({
             messages: messageList,
             loading: false,
-          },console.log('hi'));
+          });
         } else {
           this.setState({ messages: null, loading: false });
         }

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import 'rsuite/lib/styles/index.less';
 import "./rsuite-dark.css"
 import Firebase, { withFirebase, FirebaseContext } from '../Firebase';
@@ -6,13 +6,37 @@ import Firebase, { withFirebase, FirebaseContext } from '../Firebase';
 
 
 function Newproblem() {{
-    const [count, setCount] = useState(0);
     const firebase = React.useContext(FirebaseContext)
-    console.log(firebase.db.ref("newdatasets").child("dafq"))
+    const [datalist, setDatalist] = useState([]);
+    const ref = firebase.db.ref("newdatasets");
 
-    var ref = firebase.db.ref("newdatasets");
-ref.orderByKey().on("child_added", function(snapshot) {
-  console.log(snapshot.val());
+
+    useEffect(() => {
+    ref.orderByKey().on("value", function(snapshot) {
+   
+    //  setDatalist(snapshot.val()['-MN3_Q8JI7ZSb6BVYdt8'])
+
+
+      // individual dataset (list of dicts)
+      const myDataArray = []
+      snapshot.forEach(doc =>
+        myDataArray.push({ ...doc.key},
+          console.log(doc.key))
+      )
+      
+
+
+
+     
+
+      console.log(snapshot.val()['dafq'])
+      console.log('WE HERE__________________________')
+      const myDataArray2 = []
+        Object.entries(snapshot.val()['dafq'])
+        .map( ([key, value]) => myDataArray2.push(key))
+        setDatalist(myDataArray2)
+    //console.log(snapshot.val()['-MN3_Q8JI7ZSb6BVYdt8'])
+ 
 });
 
 
@@ -20,38 +44,19 @@ ref.orderByKey().on("child_added", function(snapshot) {
 
 
 
+}, []);
 
-
-    const panelStyles = {
-       padding: '15px 20px',
-       color: '#aaa'
-     };
-     
-     const headerStyles = {
-       padding: 20,
-       fontSize: 16,
-       background: '#c7d6df',
-       color: ' #fff'
-     };
-
-     
+console.log(datalist)
       return (
-        <div> {firebase.key}
+        <div> 
 
 
+<ul>
+    {datalist.map(function(item) {
+      return <li key={item}>{item}</li>;
+    })}
+  </ul>
 
-
-
-
-       <div style={{ display: 'flex', maxHeight: '50%',flexshrink: 2}}> 
-       <div className="Newproblem">
-      <h1>Hello CodeSandbox</h1>
-      <h2>You clicked {count} times!</h2>
-
-      <button onClick={() => setCount(count - 1)}>Decrement</button>
-      <button onClick={() => setCount(count + 1)}>Increment</button>
-    </div>
-     </div>
     </div>);
    
    }}
