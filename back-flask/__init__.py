@@ -1,5 +1,5 @@
 from logicx import logicx
-from flask_cors import CORS,cross_origin
+from flask_cors import CORS
 
 CORS(logicx)
 

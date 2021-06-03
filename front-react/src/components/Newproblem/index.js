@@ -2,53 +2,30 @@ import React, { useState, useEffect } from 'react';
 import 'rsuite/lib/styles/index.less';
 import "./rsuite-dark.css"
 import Firebase, { withFirebase, FirebaseContext } from '../Firebase';
+import axios from 'axios';
 
 
-
-function Newproblem() {{
+function Newproblem() {
     const firebase = React.useContext(FirebaseContext)
     const [datalist, setDatalist] = useState([]);
-    const ref = firebase.db.ref("newdatasets");
 
-
-    useEffect(() => {
-    ref.orderByKey().on("value", function(snapshot) {
-   
-    //  setDatalist(snapshot.val()['-MN3_Q8JI7ZSb6BVYdt8'])
-
-
-      // individual dataset (list of dicts)
-      const myDataArray = []
-      snapshot.forEach(doc =>
-        myDataArray.push({ ...doc.key},
-          console.log(doc.key))
-      )
-      
-
-
-
-     
-
-      console.log(snapshot.val()['dafq'])
-      console.log('WE HERE__________________________')
-      const myDataArray2 = []
-        Object.entries(snapshot.val()['dafq'])
-        .map( ([key, value]) => myDataArray2.push(key))
-        setDatalist(myDataArray2)
-    //console.log(snapshot.val()['-MN3_Q8JI7ZSb6BVYdt8'])
- 
-});
+    const config = {
+      headers: {'Access-Control-Allow-Origin': '*'}
+  };
 
 
 
 
-
-
-}, []);
-
-console.log(datalist)
+  useEffect(() => {
+    axios.get('http://127.0.0.1:5000/two', config)
+  .then(response => setDatalist(response.data));
+  }, []);
       return (
-        <div> 
+        <div style={{overflowY: 'scroll',
+
+        width:'255px',
+        float: 'left',
+        height:'55px'}}> 
 
 
 <ul>
@@ -59,7 +36,7 @@ console.log(datalist)
 
     </div>);
    
-   }}
+   }
 
 export default withFirebase(Newproblem);
 

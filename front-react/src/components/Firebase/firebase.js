@@ -3,18 +3,15 @@ import 'firebase/auth';
 import 'firebase/database';
 
 const config =  {
-  apiKey: "AIzaSyCYygfIQsiF7jKTDTRZLu8EUL0WvTNMJbg",
-  authDomain: "logic-af841.firebaseapp.com",
-  databaseURL: "https://logic-af841.firebaseio.com",
-  projectId: "logic-af841",
-  storageBucket: "logic-af841.appspot.com",
-  messagingSenderId: "945457650098",
-  appId: "1:945457650098:web:baefeb5ea8d55798236cab",
-  measurementId: "G-6WY3MG2PGG"
-};
-
-
-
+  apiKey: "AIzaSyBdD0laAl1SKi5XfNgf8KlaNJ7snPlP1dI",
+  authDomain: "logicxai-f7b55.firebaseapp.com",
+  databaseURL: "https://logicxai-f7b55-default-rtdb.firebaseio.com",
+  projectId: "logicxai-f7b55",
+  storageBucket: "logicxai-f7b55.appspot.com",
+  messagingSenderId: "101192151391",
+  appId: "1:101192151391:web:79485e8235b774141606ea",
+  measurementId: "G-RCD9YMY5LS"
+  };
 
 
 
@@ -114,7 +111,7 @@ function
 
   messages = () => this.db.ref('messages');
 
-  waa = () => this.db.ref('newdatasets');
+  user_datasets = () => this.db.ref('newdatasets');
 
  
 }

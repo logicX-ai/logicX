@@ -2,7 +2,7 @@
 .flexbox{
   display: flex;
   position:relative;
-  background:#84989e;
+  background:#5484bb;
   width:100%;
   height:100%;
   align-items: stretch;
@@ -53,7 +53,7 @@ margin: 0.5%;
 .navbarflex{
   display: flex;
   position:absolute;
-  background:#3bb8df;
+  background:#ffffff;
   width:70%;
   height:10%;
   margin-left: 5%;
@@ -81,7 +81,7 @@ margin: 0.5%;
 }
 
 .left-body-panel{
-  background: #c7d6df;
+  background: #fbfdff;
   width:15%;
   overflow: hidden;
   align-items: stretch;
@@ -102,7 +102,7 @@ margin: 0.5%;
 .right-body-panel{
   display: flex;
   flex-direction:column;
-  background:#c7d6df;
+  background:#f7f7f7;
   overflow: auto;
   padding-bottom: 1%;
   padding-top: 1%;
@@ -115,28 +115,27 @@ margin: 0.5%;
   box-shadow:
   0 2.8px 2.2px rgba(0, 0, 0, 0.064),
   0 6.7px 5.3px rgba(0, 0, 0, 0.048),
-  0 12.5px 10px rgba(0, 0, 0, 0.06),
-  0 22.3px 17.9px rgba(0, 0, 0, 0.072),
-  0 41.8px 33.4px rgba(0, 0, 0, 0.086),
-  0 100px 80px rgba(0, 0, 0, 0.12)
+  0 12.5px 10px rgba(0, 0, 0, 0.05),
+  0 22.3px 17.9px rgba(0, 0, 0, 0.042),
+  0 41.8px 33.4px rgba(0, 0, 0, 0.036),
+  0 50px 80px rgba(0, 0, 0, 0.12)
 ;
 }
 
 
 .box {
   box-shadow:
-  0 2.8px 2.2px rgba(255, 255, 255, 0.064),
-  0 6.7px 5.3px rgba(0, 0, 0, 0.048),
-  0 12.5px 10px rgba(216, 216, 216, 0.06),
-  0 22.3px 17.9px rgba(255, 255, 255, 0.072),
-  0 41.8px 33.4px rgba(255, 255, 255, 0.086),
-  0 100px 80px rgba(0, 0, 0, 0.12)
+  0 2.8px 2.2px rgba(0, 0, 0, 0.403),
+  0 6.7px 5.3px rgba(0, 0, 0, 0.363),
+  0 6.5px 6px rgba(0, 0, 0, 0.034),
+  0 2.3px 8.9px rgba(0, 0, 0, 0.041),
+  0 1.8px 6.4px rgba(0, 0, 0, 0.048),
+  0 3px 16px rgba(0, 0, 0, 0.144)
 ;
 align-content: center;
-
   display: flex;
-  background: #f8f8f865;
-  border-radius: 10px;
+  background: #5484bb;
+  border-radius: 3px;
   flex-direction: column;
 
 }
@@ -151,8 +150,10 @@ align-content: center;
   border-radius: 15px;
   margin: 0.5%;
   background-color: rgb(255, 255, 255);
-  height: 200px;
+  height: fit-content;
   overflow:visible;
+  justify-content: center;
+  align-content: center;
  
   box-shadow:
   0 2.8px 2.2px rgba(255, 255, 255, 0.064),

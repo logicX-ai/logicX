@@ -42,6 +42,10 @@ function Newproblem() {{
 
 
 
+
+
+
+
 useEffect(() => {
   // Update the document title using the browser API
   document.title = `You clicked ${count} times`;
@@ -71,3 +75,19 @@ useEffect(() => {
 
 export default withFirebase(Newproblem);
 
+
+
+
+
+
+
+
+
+
+   ///const ref = firebase.db.ref("user");
+    //ref.child("datasets").once("value", function(snapshot) {
+
+    
+    //ref.off()
+
+//});

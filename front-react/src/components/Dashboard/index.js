@@ -6,20 +6,28 @@ import "./logicx.css"
 import UploadDatasetForm from '../UploadDatasetForm'
 import Newproblem from '../Newproblem'
 import DataTable from '../DataTable'
-
+import SimpleAccordion from '../SimpleAccordion'
 
 const DashboardPage = () => (
 
+<div>
 
   <div class="box">
 
 
-<div class="alta">
-<Messages/>
-</div>
+<div class="alta"><DataTable/></div>
+
+</div> 
+
+<br></br>
+<br></br>
+<div class="box">
 
 
-<div class="alta"><Newproblem/></div>
+
+
+<div class="alta"><Messages/></div>
+
 
 
 </div> 
@@ -27,6 +35,7 @@ const DashboardPage = () => (
 
 
 
+</div>
 
 
 

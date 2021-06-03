@@ -1,56 +1,63 @@
-import React, { Component } from 'react';
-import { CSVReader } from 'react-papaparse';
-import axios from 'axios';
-import "./logicx.css"
-import { withFirebase } from '../Firebase';
+import React, { useState, useEffect } from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import Accordion from '@material-ui/core/Accordion';
+import AccordionSummary from '@material-ui/core/AccordionSummary';
+import AccordionDetails from '@material-ui/core/AccordionDetails';
+import Typography from '@material-ui/core/Typography';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 
-export default class UploadDatasetForm extends Component {
+  import "react-dropzone-uploader/dist/styles.css";
+  import Dropzone from "react-dropzone-uploader";
+  import axios from 'axios';
+  export default function UploadDatasetForm() {
+    const [datalist, setDatalist] = useState([]);
 
 
+    const doit = (data) => {
+    setDatalist(data)
+    }
 
-
-
-
-  handleOnDrop = (data) => {
-    
-
-  console.log(data.keys())
-
+    const getUploadParams = () => {
+      return { url: "http://127.0.0.1:5000/", };
+    };
   
-    axios.post('http://127.0.0.1:5000/',[{
-      data}, {'Dataset_Name' : 'dafq'}]
-    )
-    .then(function (response) {
-      console.log(response);
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
-  };
+    const handleChangeStatus = ({ meta }, status) => {
+      //console.log(status, meta);
+    };
+  
+      const handleSubmit = (files, allFiles) => {
+      //console.log(files.map(f => f.meta));
+      allFiles.forEach(f => f.remove());
+      
 
-  handleOnError = (err, file, inputElem, reason) => {
-    console.log(err);
-  };
+      const config = {
+        headers: {'Access-Control-Allow-Origin': '*'}
+    };
+       axios.get('http://127.0.0.1:5000/two', config)
+      .then(function (response) {
+        console.log('hi',response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      })
+      .then(function () {
+       
+      }) 
+    };
+  
+ 
 
-  handleOnRemoveFile = (data) => {
-    console.log(data);
-  };
-
-  render() {
     return (
-      <>
-  
-        <CSVReader
-          onDrop={this.handleOnDrop}
-          onError={this.handleOnError}
-          addRemoveButton
-          onRemoveFile={this.handleOnRemoveFile}>
-          <span>Upload CSV </span>
-    
+      <Dropzone
+        getUploadParams={getUploadParams}
+        onChangeStatus={handleChangeStatus}
+        inputContent="UPLOAD"
+        onSubmit={handleSubmit}
+        onSubmit={doit}
+        maxFiles={1}
 
-        </CSVReader>
-      </>
+        styles={{ dropzone: { minHeight: 100, maxHeight: 70 } }}
+      />
     );
   }
-}

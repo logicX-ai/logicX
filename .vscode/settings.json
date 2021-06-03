@@ -1,3 +1,13 @@
 {
-    "python.pythonPath": "C:\\Users\\randy\\AppData\\Local\\Programs\\Python\\Python37\\python.exe"
+    "python.pythonPath": "C:\\Users\\randy\\AppData\\Local\\Programs\\Python\\Python37-32\\python.exe",
+    "python.testing.unittestArgs": [
+        "-v",
+        "-s",
+        "./back-flask",
+        "-p",
+        "*test.py"
+    ],
+    "python.testing.pytestEnabled": false,
+    "python.testing.nosetestsEnabled": false,
+    "python.testing.unittestEnabled": true
 }
